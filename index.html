@@ -14,11 +14,15 @@
 
 <body>
 
-    <!-- GAME CANVAS -->
+    <!-- =========================
+         GAME CANVAS
+    ========================== -->
     <div id="game-container"></div>
 
 
-    <!-- HUD -->
+    <!-- =========================
+         HUD
+    ========================== -->
     <div id="hud">
 
         <div class="hud-box">
@@ -39,7 +43,9 @@
     </div>
 
 
-    <!-- MAIN MENU -->
+    <!-- =========================
+         MAIN MENU
+    ========================== -->
     <div id="menu" class="screen">
 
         <h1>🐍 SNAKE JUMP</h1>
@@ -53,18 +59,20 @@
             placeholder="Masukkan nama"
         >
 
-        <button id="playButton">
+        <button type="button" id="playButton">
             PLAY
         </button>
 
-        <button id="leaderboardButton">
+        <button type="button" id="leaderboardButton">
             LEADERBOARD
         </button>
 
     </div>
 
 
-    <!-- GAME OVER -->
+    <!-- =========================
+         GAME OVER
+    ========================== -->
     <div id="gameOver" class="screen hidden">
 
         <h1>GAME OVER</h1>
@@ -84,34 +92,38 @@
             <strong id="finalLevel">1</strong>
         </p>
 
-        <button id="restartButton">
+        <button type="button" id="restartButton">
             PLAY AGAIN
         </button>
 
-        <button id="menuButton">
+        <button type="button" id="menuButton">
             MAIN MENU
         </button>
 
     </div>
 
 
-    <!-- PAUSE -->
+    <!-- =========================
+         PAUSE SCREEN
+    ========================== -->
     <div id="pauseScreen" class="screen hidden">
 
         <h1>PAUSED</h1>
 
-        <button id="resumeButton">
+        <button type="button" id="resumeButton">
             RESUME
         </button>
 
-        <button id="pauseRestartButton">
+        <button type="button" id="pauseRestartButton">
             RESTART
         </button>
 
     </div>
 
 
-    <!-- LEADERBOARD -->
+    <!-- =========================
+         LEADERBOARD
+    ========================== -->
     <div id="leaderboard" class="screen hidden">
 
         <h1>🏆 LEADERBOARD</h1>
@@ -120,50 +132,82 @@
             Loading...
         </div>
 
-        <button id="closeLeaderboard">
+        <button type="button" id="closeLeaderboard">
             CLOSE
         </button>
 
     </div>
 
 
-    <!-- MOBILE CONTROLS -->
+    <!-- =========================
+         MOBILE CONTROLS
+    ========================== -->
     <div id="mobileControls">
 
-        <button id="leftButton">
+        <button type="button" id="leftButton">
             ◀
         </button>
 
-        <button id="jumpButton">
+        <button type="button" id="jumpButton">
             ⬆
         </button>
 
-        <button id="rightButton">
+        <button type="button" id="rightButton">
             ▶
         </button>
 
     </div>
 
 
-    <!-- PAUSE BUTTON -->
-    <button id="pauseButton">
+    <!-- =========================
+         PAUSE BUTTON
+    ========================== -->
+    <button type="button" id="pauseButton">
         Ⅱ
     </button>
 
 
-    <!-- ========================================= -->
-    <!-- THREE.JS                                  -->
-    <!-- ========================================= -->
+    <!-- ==================================================
+         THREE.JS + GAME LOADER
+         ================================================== -->
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script type="module">
+
+        /*
+         * Load Three.js sebagai module.
+         * Kemudian kita masukkan THREE ke window
+         * supaya script.js yang sekarang tetap bisa
+         * menggunakan THREE.Scene(), THREE.Mesh(), dll.
+         */
+
+        import * as THREE from
+            "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 
 
-    <!-- ========================================= -->
-    <!-- SNAKE JUMP GAME                           -->
-    <!-- ========================================= -->
+        // Buat THREE tersedia secara global
+        window.THREE = THREE;
 
-    <script src="script.js"></script>
 
+        /*
+         * Setelah Three.js siap,
+         * baru jalankan script.js
+         */
+        import("./script.js")
+            .catch(function(error) {
+
+                console.error(
+                    "Gagal menjalankan Snake Jump:",
+                    error
+                );
+
+                alert(
+                    "Game gagal dimuat. " +
+                    "Tekan F12 lalu buka Console untuk melihat error."
+                );
+
+            });
+
+    </script>
 
 </body>
 
