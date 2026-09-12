@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Snake Jump 3D</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- GAME CANVAS -->
+    <div id="game-container"></div>
+
+    <!-- HUD -->
+    <div id="hud">
+        <div class="hud-box">
+            <span>🏆 SCORE</span>
+            <strong id="score">0</strong>
+        </div>
+
+        <div class="hud-box">
+            <span>🪙 COINS</span>
+            <strong id="coins">0</strong>
+        </div>
+
+        <div class="hud-box">
+            <span>🚀 LEVEL</span>
+            <strong id="level">1</strong>
+        </div>
+    </div>
+
+    <!-- MAIN MENU -->
+    <div id="menu" class="screen">
+        <h1>🐍 SNAKE JUMP</h1>
+        <p>3D Endless Runner</p>
+
+        <input
+            type="text"
+            id="playerName"
+            maxlength="20"
+            placeholder="Masukkan nama">
+
+        <button id="playButton">PLAY</button>
+        <button id="leaderboardButton">LEADERBOARD</button>
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="gameOver" class="screen hidden">
+        <h1>GAME OVER</h1>
+
+        <p>Score: <strong id="finalScore">0</strong></p>
+        <p>Coins: <strong id="finalCoins">0</strong></p>
+        <p>Level: <strong id="finalLevel">1</strong></p>
+
+        <button id="restartButton">PLAY AGAIN</button>
+        <button id="menuButton">MAIN MENU</button>
+    </div>
+
+    <!-- PAUSE -->
+    <div id="pauseScreen" class="screen hidden">
+        <h1>PAUSED</h1>
+        <button id="resumeButton">RESUME</button>
+        <button id="pauseRestartButton">RESTART</button>
+    </div>
+
+    <!-- LEADERBOARD -->
+    <div id="leaderboard" class="screen hidden">
+        <h1>🏆 LEADERBOARD</h1>
+
+        <div id="leaderboardList">
+            Loading...
+        </div>
+
+        <button id="closeLeaderboard">CLOSE</button>
+    </div>
+
+    <!-- MOBILE CONTROLS -->
+    <div id="mobileControls">
+
+        <button id="leftButton">◀</button>
+
+        <button id="jumpButton">⬆</button>
+
+        <button id="rightButton">▶</button>
+
+    </div>
+
+    <!-- PAUSE BUTTON -->
+    <button id="pauseButton">Ⅱ</button>
+
+    <!-- THREE.JS -->
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
+```
